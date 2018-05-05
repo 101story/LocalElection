@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,42 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426023310) do
+ActiveRecord::Schema.define(version: 20180504112428) do
 
-  create_table "emds", force: :cascade do |t|
-    t.integer  "gusigun_id"
-    t.string   "towncode"
-    t.string   "emdcode"
-    t.string   "emdname"
-    t.string   "findlist"
+  create_table "emds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "gusigun_id"
+    t.string "towncode"
+    t.string "emdcode"
+    t.string "emdname"
+    t.string "findlist"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gusigun_id"], name: "index_emds_on_gusigun_id"
+  end
+
+  create_table "gusiguns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "sido_id"
+    t.string "wiwid"
+    t.string "wiwtypecode"
+    t.string "towncode"
+    t.string "townname"
+    t.string "guname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sido_id"], name: "index_gusiguns_on_sido_id"
+  end
+
+  create_table "sidos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "wiwd"
+    t.string "wiwname"
+    t.string "findlist"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "gusiguns", force: :cascade do |t|
-    t.integer  "sido_id"
-    t.string   "wiwid"
-    t.string   "wiwtypecode"
-    t.string   "towncode"
-    t.string   "townname"
-    t.string   "guname"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "sidos", force: :cascade do |t|
-    t.string   "wiwid"
-    t.string   "wiwname"
-    t.string   "findlist"
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "chat_room"
+    t.string "user_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "chat_room"
-    t.string   "user_key"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "emds", "gusiguns"
+  add_foreign_key "gusiguns", "sidos"
 end

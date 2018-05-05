@@ -1,3 +1,3 @@
-class Emd < ActiveRecord::Base
-    belongs_to :gusigun
+class Emd < ApplicationRecord
+  belongs_to :gusigun
 end

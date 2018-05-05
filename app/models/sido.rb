@@ -1,3 +1,3 @@
-class Sido < ActiveRecord::Base
-    has_many :gusigun
+class Sido < ApplicationRecord
+  has_many :gusigun
 end

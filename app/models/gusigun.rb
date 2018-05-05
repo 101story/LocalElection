@@ -1,4 +1,4 @@
-class Gusigun < ActiveRecord::Base
-    belongs_to :sido
-    has_many :emd
+class Gusigun < ApplicationRecord
+  belongs_to :sido
+  has_many :emd
 end
