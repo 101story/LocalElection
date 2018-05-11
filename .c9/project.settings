@@ -19,7 +19,7 @@
             "@inited": "true",
             "json()": {
                 "Ruby on Rails": {
-                    "command": "",
+                    "command": "데",
                     "default": true,
                     "name": "Ruby on Rails",
                     "runner": "Ruby on Rails (default)"

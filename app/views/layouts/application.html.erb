@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    <% if !session[:login] %>
+      <a href = '/db/loginpage'>[로그인]</a>
+    <% else %>
+      <a href = '/db/loginpage'>[로그아웃]</a>
+    <% end %>
     <%= yield %>
   </body>
 </html>
